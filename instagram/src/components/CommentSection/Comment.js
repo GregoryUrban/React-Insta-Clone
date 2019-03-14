@@ -5,8 +5,13 @@ import './Comment.css';
 const Comment = props => {
     return (
       <div className="comment-text">
-        {props.comment.text}
-        {props.comment.username}
+        <p>
+            <span className='bolded-name'>
+                {props.comment.username}
+                {'  '}
+            </span>
+            {props.comment.text}
+        </p>
       </div>
     //a Comment component with the username of the poster as well as the post's text
     );

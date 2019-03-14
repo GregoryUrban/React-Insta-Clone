@@ -1,5 +1,6 @@
 .post-header {
  display: flex;
+ align-items: center;
  padding: 15px;
  font-weight: bold;
 }
@@ -8,4 +9,20 @@
     border-radius: 50%;
     width: 45px;
     height: 45px;
+}
+
+.post-thumb-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+input {
+    width: 100%;
+    padding: 20px;
+    border-top-color: lightgray;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
 }

@@ -1,0 +1,11 @@
+.comment-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 500;
+    height: 30px;
+}
+
+.bolded-name {
+    font-weight: 700;
+}

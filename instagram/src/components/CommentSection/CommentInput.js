@@ -3,7 +3,7 @@ import React from 'react';
 const CommentInput = props => {
     return (
       <form>
-        <input type="text" placeholder="Make a comment! " />
+        <input type="text" placeholder="Add a comment... " />
       </form>
     //   an input box that allows users to submit a new comment for any post
     );
