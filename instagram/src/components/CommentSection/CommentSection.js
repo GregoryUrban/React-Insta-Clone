@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
 import CommentInput from './CommentInput';
@@ -8,16 +9,46 @@ class CommentSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      comments: props.comments
-      // The CommentSection component will receive the array of comments as props   
+      comments: props.comments,
+      // The CommentSection component will receive the array of comments as props  
+      comment: '' 
     };
+  } 
+
+  commentChange = (event) => {
+    this.setState({ comment: event.target.value })
   }
+
+  addNewComment = (event) => {
+    event.preventDefault();
+
+    const comments = this.state.comments.slice();
+    const newComment = { text: this.state.comment, username: 'Greg Comment Section' }
+
+    if (this.state.comment[0] !== '') {
+      comments.push(newComment);
+      this.setState({ comments, comment: '' })
+    }
+  };
+
+
   render() {
+    // const time = moment.format("D MMM");
+    const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");
+    // console.log(time);
+    const newTime = time.fromNow().toUpperCase();
     return (
-      <div>
-        {this.state.comments.map((e, i) => <Comment key={i} comment={e} />)}
-        <CommentInput />
-      </div>
+      <div className='comments-container'>
+        {this.state.comments.map((comment) => {
+            return (<Comment comment={comment}/>)
+        })}
+        <p>{newTime}</p>
+        <div className='comment-input'>
+            <form onSubmit={this.addNewComment}>
+                <input type='text' onChange={this.commentChange} placeholder='Add a comment'/>
+            </form>
+        </div>
+      </div> 
     );
   } 
   // render a Comment component with the username of the poster as well as the post's text

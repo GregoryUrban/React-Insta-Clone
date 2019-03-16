@@ -1,13 +1,15 @@
 import React from 'react';
-
+ 
 const CommentInput = props => {
-    return (
-      <form>
-        <input type="text" placeholder="Add a comment... " />
-      </form>
-    //   an input box that allows users to submit a new comment for any post
-    );
-  };
+  return (
+    <div className='commentForm'>
+    <form>
+      <input type="text" placeholder="Add a comment... " />
+    </form>
+    </div> 
+  //   an input box that allows users to submit a new comment for any post
+  );
+};
 
 export default CommentInput;
 
