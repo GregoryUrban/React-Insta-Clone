@@ -27,8 +27,8 @@ class App extends Component {
     console.log("CDU called");
     if (this.state.posts.length > prevState.posts.length) {
       console.log("Posts state changed, component will update");
-      this.setState({ name: "Greg" });
-    }
+      // this.setState({ name: "Greg", text: "Add a comment2..." });
+    } 
   }
 
   componentWillUnmount() {}

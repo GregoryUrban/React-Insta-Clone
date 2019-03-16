@@ -19,15 +19,16 @@ class CommentSection extends React.Component {
     this.setState({ comment: event.target.value })
   }
 
-  addNewComment = (event) => {
+  addNewComment = (event, index) => {
     event.preventDefault();
 
     const comments = this.state.comments.slice();
     const newComment = { text: this.state.comment, username: 'Greg Comment Section' }
-
+    
     if (this.state.comment[0] !== '') {
       comments.push(newComment);
       this.setState({ comments, comment: '' })
+      
     }
   };
 
@@ -46,6 +47,7 @@ class CommentSection extends React.Component {
         <div className='comment-input'>
             <form onSubmit={this.addNewComment}>
                 <input type='text' onChange={this.commentChange} placeholder='Add a comment'/>
+                
             </form>
         </div>
       </div> 
