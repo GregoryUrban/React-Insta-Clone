@@ -20,19 +20,45 @@ class CommentSection extends React.Component {
   }
 
   addNewComment = (event, index) => {
-    event.preventDefault();
+    let form = event.target;// this contributes to resetting form after input
+    event.preventDefault();// this contributes to resetting form after input
+    form.reset(); // this contributes to resetting form after input
 
     const comments = this.state.comments.slice();
     const newComment = { 
       text: this.state.comment, 
       username: 'Greg Comment Section',
      }
-    
-    if (this.state.comment[0] !== '') {
+
+    if(this.state.comment !== undefined){
       comments.push(newComment);
-      this.setState({ comments, comment: '' })
+
+      this.setState(prevState => {
+        return {
+          comments: [...prevState.comments, newComment],
+          newComment: ''
+          
+        };
+      });
+      
     }
-  };
+
+  }; // END OF addNewComment
+
+  state = this.initialState
+  handleFormReset = () => {
+    this.setState(() => this.initialState)
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if( prevProps.searchTerm !== this.props.searchTerm) {
+      console.log('search has changed to ', this.state.searchTerm);
+      this.setState(
+         {searchTerm: this.props.searchTerm}
+      )
+    }
+  }
+
 
 
   render() {
@@ -48,7 +74,11 @@ class CommentSection extends React.Component {
         <p>{newTime}</p>
         <div className='comment-input'>
             <form onSubmit={this.addNewComment}>
-                <input type='text' onChange={this.commentChange} placeholder='Add a comment'/>
+                <input 
+                type='text' 
+                onChange={this.commentChange} 
+                placeholder='Add a comment'
+                />
             </form>
         </div>
       </div> 

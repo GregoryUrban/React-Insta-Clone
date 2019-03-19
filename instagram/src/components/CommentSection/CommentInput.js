@@ -4,13 +4,14 @@ const CommentInput = props => {
   return (
     <div className='commentForm'>
     <form>
-      <input type="text" placeholder="Add a comment... " />
+      <input type="text" placeholder="Add a commentinput... " />
       {/* .then(() => reset()) */}
     </form>
     </div> 
   //   an input box that allows users to submit a new comment for any post
   );
 };
+
 
 export default CommentInput;
 
