@@ -19,7 +19,7 @@ const Post = props => {
           /> 
         </div>
         <div className='post-comment-wrapper'>
-        <CommentSection comments={props.post.comments}  />
+        <CommentSection comments={props.post.comments} time={props.post.timestamp} />
         
         </div>
       </div>

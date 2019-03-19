@@ -12,8 +12,6 @@ class CommentSection extends React.Component {
       comments: props.comments,
       // The CommentSection component will receive the array of comments as props  
       comment: '' ,
-      timestamp: props.timestamp
-      // time: this.props.time
     };
   } 
 
@@ -28,7 +26,6 @@ class CommentSection extends React.Component {
     const newComment = { 
       text: this.state.comment, 
       username: 'Greg Comment Section',
-      timeVal: moment().format('MMMM Do YYYY')
      }
     
     if (this.state.comment[0] !== '') {
@@ -39,33 +36,19 @@ class CommentSection extends React.Component {
 
 
   render() {
-    // const time = moment.format("D MMM");
-    // <Date>{moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()}</Date>
-    // const time = moment(this.state.time, "MMM Do YYYY, hh:mm:ss a");
-    // const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");
-
-    // console.log(time);
-    // const newTime = time.fromNow().toUpperCase();
+    const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");
+    const newTime = time.fromNow().toUpperCase();
     return (
       <div className='comments-container'>
         {this.state.comments.map((comment) => {
             return (
-            // <Comment comment={comment} timestamp={this.props.comments.timestamp}/>
-            <Comment comment={comment} timestamp={this.props.timestamp} />
-
-        //  <Comment comment={this.props.comments} timestamp={this.props.comments.timestamp} />
-            
-            // <Date>{moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()}</Date>
+            <Comment comment={comment} />
             )
         })}
-        {/* <p>{newTime}</p> */}
+        <p>{newTime}</p>
         <div className='comment-input'>
             <form onSubmit={this.addNewComment}>
-                {/* <input type='text' onChange={this.commentChange} timestamp={moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()} placeholder='Add a comment'/> */}
-                {/* <input type='text' onChange={this.commentChange} timestamp={moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()} placeholder='Add a comment'/> */}
                 <input type='text' onChange={this.commentChange} placeholder='Add a comment'/>
-
-                
             </form>
         </div>
       </div> 
