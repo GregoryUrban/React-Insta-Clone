@@ -11,7 +11,9 @@ class CommentSection extends React.Component {
     this.state = {
       comments: props.comments,
       // The CommentSection component will receive the array of comments as props  
-      comment: '' 
+      comment: '' ,
+      timestamp: props.timestamp
+      // time: this.props.time
     };
   } 
 
@@ -23,30 +25,46 @@ class CommentSection extends React.Component {
     event.preventDefault();
 
     const comments = this.state.comments.slice();
-    const newComment = { text: this.state.comment, username: 'Greg Comment Section' }
+    const newComment = { 
+      text: this.state.comment, 
+      username: 'Greg Comment Section',
+      timeVal: moment().format('MMMM Do YYYY')
+     }
     
     if (this.state.comment[0] !== '') {
       comments.push(newComment);
       this.setState({ comments, comment: '' })
-      
     }
   };
 
 
   render() {
     // const time = moment.format("D MMM");
-    const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");
+    // <Date>{moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()}</Date>
+    // const time = moment(this.state.time, "MMM Do YYYY, hh:mm:ss a");
+    // const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");
+
     // console.log(time);
-    const newTime = time.fromNow().toUpperCase();
+    // const newTime = time.fromNow().toUpperCase();
     return (
       <div className='comments-container'>
         {this.state.comments.map((comment) => {
-            return (<Comment comment={comment}/>)
+            return (
+            // <Comment comment={comment} timestamp={this.props.comments.timestamp}/>
+            <Comment comment={comment} timestamp={this.props.timestamp} />
+
+        //  <Comment comment={this.props.comments} timestamp={this.props.comments.timestamp} />
+            
+            // <Date>{moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()}</Date>
+            )
         })}
-        <p>{newTime}</p>
+        {/* <p>{newTime}</p> */}
         <div className='comment-input'>
             <form onSubmit={this.addNewComment}>
+                {/* <input type='text' onChange={this.commentChange} timestamp={moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()} placeholder='Add a comment'/> */}
+                {/* <input type='text' onChange={this.commentChange} timestamp={moment(this.state.time, 'MMMM Do YYYY, hh:mm:ss a').fromNow()} placeholder='Add a comment'/> */}
                 <input type='text' onChange={this.commentChange} placeholder='Add a comment'/>
+
                 
             </form>
         </div>
@@ -58,7 +76,7 @@ class CommentSection extends React.Component {
 
 CommentSection.propTypes = {
   comments: PropTypes.arrayOf(
-    PropTypes.shape({ username: PropTypes.string , text: PropTypes.string })
+    PropTypes.shape({ username: PropTypes.string , text: PropTypes.string, timestamp: PropTypes.string})
   )
 };
 

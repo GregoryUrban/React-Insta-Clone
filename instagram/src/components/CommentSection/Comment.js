@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import PropTypes from 'prop-types';
 import './Comment.css';
 
@@ -11,6 +12,8 @@ const Comment = props => {
                 {'  '}
             </span>
             {props.comment.text}
+            {props.comment.timeVal}
+            {/* const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a"); */}
         </p>
       </div>
     //a Comment component with the username of the poster as well as the post's text

@@ -1,11 +1,12 @@
 import React from 'react';
 import Post from './Post';
+// import CommentSection from './../CommentSection/CommentSection';
 
 const PostContainer = props => {
     return (
       <div className="posts-container-wrapper">
         {props.posts.map(p => <Post key={p.imageUrl} post={p} />)} 
-        {/* ^^^iterate over said data ^^^*/}
+        {/* <CommentSection comments={this.props.comments} timestamp={this.props.post.timestamp} /> */}
       </div>
     );
   };

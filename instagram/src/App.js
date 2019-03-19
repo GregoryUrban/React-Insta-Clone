@@ -43,6 +43,7 @@ class App extends Component {
         {/* single instance of the Search Bar being rendered at the top of the page */}
         <PostContainer posts={this.state.posts} />
         
+        
         {/* a Post Container and a Comment Section for every piece of mock data */}
       </div>
     );
