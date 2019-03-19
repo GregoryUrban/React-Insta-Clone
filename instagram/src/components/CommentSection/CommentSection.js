@@ -2,7 +2,7 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
-import CommentInput from './CommentInput';
+// import CommentInput from './CommentInput';
 
 
 class CommentSection extends React.Component {
@@ -49,17 +49,6 @@ class CommentSection extends React.Component {
   handleFormReset = () => {
     this.setState(() => this.initialState)
   }
-
-  componentDidUpdate(prevProps, prevState) {
-    if( prevProps.searchTerm !== this.props.searchTerm) {
-      console.log('search has changed to ', this.state.searchTerm);
-      this.setState(
-         {searchTerm: this.props.searchTerm}
-      )
-    }
-  }
-
-
 
   render() {
     const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");

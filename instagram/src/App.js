@@ -9,8 +9,10 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      posts: dummyData
+      posts: dummyData,
+      searchTerm: ''
     };
+
     console.log("In the constructor");
   }
 
@@ -38,10 +40,20 @@ class App extends Component {
     return (
       <div className="App">
       <header>
-          <SearchBar changeHandler={this.changeHandler} />
+          {/* <SearchBar changeHandler={this.changeHandler} /> */}
+          <SearchBar
+            name = 'searchTerm'
+            value = {this.state.searchTerm}
+            updateHandler = {this.updateHandler}
+          />
       </header>
         {/* single instance of the Search Bar being rendered at the top of the page */}
-        <PostContainer posts={this.state.posts} />
+        <PostContainer 
+        posts={this.state.posts} 
+        name = 'searchTerm'
+        searchTerm = {this.state.searchTerm}
+        data = {dummyData}
+        />
         
         
         {/* a Post Container and a Comment Section for every piece of mock data */}
