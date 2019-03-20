@@ -2,8 +2,9 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import Comment from './Comment';
-// import CommentInput from './CommentInput';
-
+import CommentHeader from './CommentHeader';
+import './Comment.css';
+import dummyData from '../../dummy-data';
 
 class CommentSection extends React.Component {
   constructor(props) {
@@ -12,9 +13,23 @@ class CommentSection extends React.Component {
       comments: props.comments,
       // The CommentSection component will receive the array of comments as props  
       comment: '' ,
+      likes: 0,
+      searchTerm: '',
     };
   } 
 
+  componentDidMount () {
+    //   console.log('*** CommentSection ComponentDidMount called');
+       this.setState({
+         comments: this.props.comments,
+         likes: this.props.likes,
+         newComment: this.props.newComment,
+         searchTerm: this.props.searchTerm,
+       })
+   
+     }
+   
+   
   commentChange = (event) => {
     this.setState({ comment: event.target.value })
   }
@@ -50,11 +65,27 @@ class CommentSection extends React.Component {
     this.setState(() => this.initialState)
   }
 
+  likeHandler = () => {
+    this.setState(prevState => {
+      return {likes: prevState.likes + 1 }
+    })
+
+  };
+
   render() {
     const time = moment(this.props.time, "MMM Do YYYY, h:mm:ss a");
     const newTime = time.fromNow().toUpperCase();
     return (
       <div className='comments-container'>
+
+
+<CommentHeader
+          likes = {this.state.likes}
+          likesVar = {this.likesVar}
+          likeHandler = {this.likeHandler}
+        />
+
+
         {this.state.comments.map((comment) => {
             return (
             <Comment comment={comment} />

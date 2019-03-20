@@ -3,21 +3,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  
-   
   }
   
   .searchbar-container p {
     line-height: 1.25rem;
 }
 
-
   .left, .right {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 20%;
-   
   }
 
   .left img, .right img {
@@ -26,7 +22,7 @@
     background: white;
   }
   
-  .searcher{
+  .searcher {
     width: 30%;
     line-height: 1.25rem;
     font-size: 75%;

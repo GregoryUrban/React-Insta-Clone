@@ -16,3 +16,8 @@
       font-size: 1vw;
 }
 
+
+.commentsHeaderIMG img {
+    width: 30px;
+    padding: 5px;
+}
