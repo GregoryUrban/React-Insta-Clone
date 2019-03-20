@@ -67,7 +67,7 @@ class CommentSection extends React.Component {
 
   likeHandler = () => {
     this.setState(prevState => {
-      return {likes: prevState.likes + 1 }
+      return {likes: prevState.likes ++ }
     })
 
   };
@@ -81,8 +81,8 @@ class CommentSection extends React.Component {
 
 <CommentHeader
           likes = {this.state.likes}
-          likesVar = {this.likesVar}
-          likeHandler = {this.likeHandler}
+          // likesVar = {this.likesVar}
+          // likeHandler = {this.likeHandler}
         />
 
 

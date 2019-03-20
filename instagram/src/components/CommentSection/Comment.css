@@ -21,3 +21,15 @@
     width: 30px;
     padding: 5px;
 }
+
+
+.comment-header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 256px;
+
+}
+
+.comment-header img {
+    width: 30px
+}
