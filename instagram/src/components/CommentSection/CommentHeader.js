@@ -40,13 +40,8 @@ const higherOrderComponent = () => {
        <h2>
         <img src={chat} />
          </h2> 
-       
-       <div>
          <h3>Likes {this.state.likes} {this.state.count} </h3>
-       </div>
-       
       </div>
-       
       )
     }
   }

@@ -33,3 +33,7 @@
 .comment-header img {
     width: 30px
 }
+
+.comment-header h3 {
+    width: 100%
+}
