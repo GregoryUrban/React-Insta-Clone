@@ -1,0 +1,46 @@
+.searchbar-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .searchbar-container p {
+    line-height: 1.25rem;
+}
+
+  .left, .right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 20%;
+  }
+
+  .left img, .right img {
+    width: 29px;
+    height: auto;
+    background: white;
+  }
+  
+  .searcher {
+    width: 30%;
+    line-height: 1.25rem;
+    font-size: 75%;
+    font-style: italic;
+    background-color: #FAFAFA;
+    border: 1px solid lightgray;
+    border-radius: 6%;
+    text-align: center;
+    background: url(../imgs/iconfinder_zoom-normal-regular_2931184.png) no-repeat left center content-box;
+    background-size: 1rem 1rem;
+    background-position-x: 25%;
+    background-position-y: 50%;
+  }
+   
+  .logo {
+    display: flex;
+    align-items: baseline;
+    font-style: italic;;
+    font-size: larger;
+    line-height: 2.25rem;
+  }

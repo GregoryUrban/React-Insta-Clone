@@ -1,0 +1,39 @@
+.comment-text {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-weight: 500;
+    height: 30px;
+    font-size: 1vw;
+}
+  
+.bolded-name {
+    font-weight: 700;
+}
+
+.comment-form {
+  width: 100%;
+      font-size: 1vw;
+}
+
+
+.commentsHeaderIMG img {
+    width: 30px;
+    padding: 5px;
+}
+
+
+.comment-header {
+    display: flex;
+    flex-wrap: wrap;
+    width: 256px;
+
+}
+
+.comment-header img {
+    width: 30px
+}
+
+.comment-header h3 {
+    width: 100%
+}
