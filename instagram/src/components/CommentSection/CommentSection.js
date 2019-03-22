@@ -42,7 +42,13 @@ class CommentSection extends React.Component {
     const comments = this.state.comments.slice();
     const newComment = { 
       text: this.state.comment, 
-      username: 'Greg Comment Section',
+      // username: 'Greg',
+      username: localStorage.username
+      // STRETCH - only b/c it was easy
+      // Now that you have a user set in localStorage, 
+      // go ahead and use that username when a user posts a 
+      // comment to make it so the logged in user is the one 
+      // commenting on the posts.
      }
 
     if(this.state.comment !== undefined){

@@ -18,8 +18,9 @@ class PostsPage extends React.Component {
       console.log("In the constructor");
     }
   
-    changeHandler = id => {
-      console.log(id);
+    changeHandler = event => {
+    //   console.log(id);
+      this.setState({[event.target.name]: event.target.value});
     };
   
     componentDidMount() {
@@ -27,7 +28,7 @@ class PostsPage extends React.Component {
       this.setState({ data: dummyData });
     }
    
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(_prevProps, prevState) {
       console.log("CDU called");
       if (this.state.posts.length > prevState.posts.length) {
         console.log("Posts state changed, component will update");
